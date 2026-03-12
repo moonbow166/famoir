@@ -1,0 +1,459 @@
+@import '@fontsource/playfair-display/400.css';
+@import '@fontsource/playfair-display/600.css';
+@import '@fontsource/playfair-display/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Famoir Design System
+  Warm, inviting, book-like. Senior-friendly.
+  All colors in HSL.
+*/
+
+@layer base {
+  :root {
+    /* === Core Palette (Famoir Warm) === */
+    --cream:          33 100% 98%;       /* #FFF9F5 - page background */
+    --warm-white:     33 100% 99%;       /* #FFFDFB - cards, inputs */
+    --terracotta:     14 46% 53%;        /* #C1694F - primary accent */
+    --terracotta-dark: 14 46% 44%;       /* darker hover */
+    --amber:          36 54% 64%;        /* #D4A373 - secondary accent */
+    --deep-brown:     351 16% 20%;       /* #3D2C2E - headings/primary text */
+    --warm-gray:      0 9% 39%;          /* #6B5B5B - body text */
+    --sage:           115 12% 55%;       /* #7D9B76 - success */
+    --soft-blue:      203 40% 76%;       /* #A8C5DA - user chat bubbles */
+    --light-peach:    24 86% 91%;        /* #FAE5D3 - AI chat bubbles */
+
+    /* === Shadcn Token Mapping (Famoir Brand Palette) === */
+    --background:          33 100% 98%;      /* cream */
+    --foreground:          351 16% 20%;      /* deep-brown */
+
+    --card:                33 100% 99%;      /* warm-white */
+    --card-foreground:     351 16% 20%;      /* deep-brown */
+
+    --popover:             33 100% 99%;
+    --popover-foreground:  351 16% 20%;
+
+    --primary:             14 46% 53%;       /* terracotta */
+    --primary-foreground:  33 100% 98%;      /* cream */
+
+    --secondary:           36 54% 64%;       /* amber */
+    --secondary-foreground: 351 16% 20%;     /* deep-brown */
+
+    --muted:               33 40% 94%;       /* warm muted */
+    --muted-foreground:    0 9% 39%;         /* warm-gray */
+
+    --accent:              24 86% 91%;       /* light-peach */
+    --accent-foreground:   351 16% 20%;      /* deep-brown */
+
+    --destructive:         0 72% 51%;
+    --destructive-foreground: 33 100% 98%;
+
+    --border:              33 30% 88%;       /* warm border */
+    --input:               33 30% 88%;       /* warm input border */
+    --ring:                14 46% 53%;       /* terracotta focus ring */
+
+    --radius:          0.375rem; /* 10px */
+
+    /* === Famoir Custom Tokens === */
+    --shadow-warm: 0 4px 24px -4px hsl(14 46% 53% / 0.12), 0 2px 8px -2px hsl(351 16% 20% / 0.08);
+    --shadow-card: 0 2px 16px -2px hsl(351 16% 20% / 0.10);
+    --shadow-elevated: 0 8px 32px -8px hsl(351 16% 20% / 0.16);
+    --gradient-hero: linear-gradient(145deg, hsl(33 100% 98%) 0%, hsl(24 86% 94%) 100%);
+    --gradient-terracotta: linear-gradient(135deg, hsl(14 46% 53%), hsl(14 46% 44%));
+    --gradient-amber: linear-gradient(135deg, hsl(36 54% 64%), hsl(36 54% 56%));
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* === Sidebar (reuse warm palette) === */
+    --sidebar-background: 33 40% 96%;
+    --sidebar-foreground:  351 16% 20%;
+    --sidebar-primary:     14 46% 53%;
+    --sidebar-primary-foreground: 33 100% 98%;
+    --sidebar-accent:      24 86% 91%;
+    --sidebar-accent-foreground: 351 16% 20%;
+    --sidebar-border:      33 30% 88%;
+    --sidebar-ring:        14 46% 53%;
+    --chart-1:          41 22.2% 64.6%;
+    --chart-2:          185 11.8% 60%;
+    --chart-3:          227 7% 39.8%;
+    --chart-4:          84 18.9% 82.8%;
+    --chart-5:          70 18.8% 76.9%;
+    --sidebar:          248 0.3% 98.4%;
+    --font-sans:          ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif:          ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono:          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --shadow-2xs:          0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs:          0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl:          0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal:          0em;
+    --spacing:          0.25rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 18px; /* Senior-friendly base */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: hsl(var(--deep-brown));
+  }
+  .dark {
+    --background:          0 0% 15%;
+    --foreground:          248 0.3% 98.4%;
+    --card:          266 4% 20.8%;
+    --card-foreground:          248 0.3% 98.4%;
+    --popover:          266 4% 20.8%;
+    --popover-foreground:          248 0.3% 98.4%;
+    --primary:          256 1.3% 92.9%;
+    --primary-foreground:          266 4% 20.8%;
+    --secondary:          260 4.1% 27.9%;
+    --secondary-foreground:          248 0.3% 98.4%;
+    --muted:          260 4.1% 27.9%;
+    --muted-foreground:          257 4% 70.4%;
+    --accent:          260 4.1% 27.9%;
+    --accent-foreground:          248 0.3% 98.4%;
+    --border:          0 0% 100% / 10%;
+    --input:          0 0% 100% / 15%;
+    --ring:          264 2.7% 55.1%;
+    --destructive:          22 19.1% 70.4%;
+    --destructive-foreground:          248 0.3% 98.4%;
+    --chart-1:          264 24.3% 48.8%;
+    --chart-2:          162 17% 69.6%;
+    --chart-3:          70 18.8% 76.9%;
+    --chart-4:          304 26.5% 62.7%;
+    --chart-5:          16 24.6% 64.5%;
+    --sidebar:          266 4% 20.8%;
+    --sidebar-foreground:          248 0.3% 98.4%;
+    --sidebar-primary:          264 24.3% 48.8%;
+    --sidebar-primary-foreground:          248 0.3% 98.4%;
+    --sidebar-accent:          260 4.1% 27.9%;
+    --sidebar-accent-foreground:          248 0.3% 98.4%;
+    --sidebar-border:          0 0% 100% / 10%;
+    --sidebar-ring:          264 2.7% 55.1%;
+    --shadow-2xs:          0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs:          0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl:          0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl:          0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  }
+}
+
+@layer components {
+  /* === Famoir Buttons === */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200;
+    min-height: 56px;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    background: var(--gradient-terracotta);
+    color: hsl(var(--cream));
+    box-shadow: var(--shadow-warm);
+    font-family: var(--font-body);
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-elevated);
+    background: linear-gradient(135deg, hsl(14 46% 44%), hsl(14 46% 38%));
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200;
+    min-height: 56px;
+    padding: 0 2rem;
+    font-size: 1.1rem;
+    border: 2px solid hsl(var(--terracotta));
+    color: hsl(var(--terracotta));
+    background: transparent;
+    font-family: var(--font-body);
+  }
+  .btn-secondary:hover {
+    background: hsl(var(--light-peach));
+    transform: translateY(-1px);
+  }
+
+  /* === Famoir Cards === */
+  .card-warm {
+    background: hsl(var(--warm-white));
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* === Chat Bubbles === */
+  .bubble-ai {
+    background: hsl(var(--light-peach));
+    border-radius: 16px 16px 16px 4px;
+    padding: 1rem 1.25rem;
+    max-width: 70%;
+    font-size: 1.1rem;
+    color: hsl(var(--deep-brown));
+    font-family: var(--font-body);
+  }
+  .bubble-user {
+    background: hsl(var(--soft-blue) / 0.3);
+    border-radius: 16px 16px 4px 16px;
+    padding: 1rem 1.25rem;
+    max-width: 70%;
+    font-size: 1.1rem;
+    color: hsl(var(--deep-brown));
+    font-family: var(--font-body);
+    align-self: flex-end;
+    border: 1px solid hsl(var(--soft-blue) / 0.5);
+  }
+
+  /* === Input Field === */
+  .input-warm {
+    height: 56px;
+    border-radius: 8px;
+    border: 2px solid hsl(var(--border));
+    padding: 0 1rem;
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    background: hsl(var(--warm-white));
+    color: hsl(var(--deep-brown));
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .input-warm:focus {
+    outline: none;
+    border-color: hsl(var(--terracotta));
+    box-shadow: 0 0 0 3px hsl(var(--terracotta) / 0.15);
+  }
+
+  /* === Image Placeholder — visible slot for AI-generated art === */
+  .image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 12px;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        hsl(33 40% 95%),
+        hsl(33 40% 95%) 8px,
+        hsl(33 40% 93%) 8px,
+        hsl(33 40% 93%) 16px
+      );
+    border: 2px dashed hsl(var(--border));
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .image-placeholder:hover {
+    border-color: hsl(var(--terracotta) / 0.4);
+  }
+  .image-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    max-width: 280px;
+  }
+
+  /* === Shimmer Loading === */
+  .shimmer {
+    background: linear-gradient(90deg,
+      hsl(33 40% 92%) 0%,
+      hsl(33 40% 97%) 50%,
+      hsl(33 40% 92%) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  /* === Waveform === */
+  .waveform-bar {
+    @apply rounded-full;
+    background: hsl(var(--terracotta));
+    animation: wave 1.2s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .text-deep-brown {
+    color: hsl(var(--deep-brown));
+  }
+  .text-warm-gray {
+    color: hsl(var(--warm-gray));
+  }
+  .text-terracotta {
+    color: hsl(var(--terracotta));
+  }
+  .text-amber {
+    color: hsl(var(--amber));
+  }
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+  .bg-warm-white {
+    background-color: hsl(var(--warm-white));
+  }
+  .bg-terracotta {
+    background-color: hsl(var(--terracotta));
+  }
+  .bg-light-peach {
+    background-color: hsl(var(--light-peach));
+  }
+  .bg-soft-blue {
+    background-color: hsl(var(--soft-blue));
+  }
+  .border-terracotta {
+    border-color: hsl(var(--terracotta));
+  }
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes waveform-bar {
+  0% { transform: scaleY(0.6); }
+  100% { transform: scaleY(1.3); }
+}
+
+/* Spring-like panel transition */
+[data-spring-panel] {
+  transition: height 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Hide scrollbar for photo strip */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* === Memory flashback: blur → sharp with gentle zoom === */
+@keyframes memory-flashback {
+  0% {
+    opacity: 0;
+    filter: blur(25px) saturate(0.3) brightness(1.3);
+    transform: scale(1.08);
+  }
+  30% {
+    opacity: 1;
+    filter: blur(12px) saturate(0.6) brightness(1.15);
+    transform: scale(1.05);
+  }
+  70% {
+    filter: blur(3px) saturate(0.9) brightness(1.05);
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) saturate(1) brightness(1);
+    transform: scale(1);
+  }
+}
+
+.animate-memory-flashback {
+  animation: memory-flashback 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Warm sepia flash overlay (plays on top of image during reveal) */
+@keyframes sepia-flash {
+  0% { opacity: 0.6; }
+  40% { opacity: 0.3; }
+  100% { opacity: 0; }
+}
+
+.memory-sepia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    hsla(30, 60%, 70%, 0.4),
+    hsla(20, 70%, 50%, 0.2) 50%,
+    transparent
+  );
+  animation: sepia-flash 2.5s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .shimmer, .waveform-bar, .animate-fade-in-up, .animate-fade-in, .animate-scale-in, .animate-pulse-ring, .animate-memory-flashback, .memory-sepia-overlay {
+    animation: none !important;
+  }
+}

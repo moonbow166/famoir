@@ -1,0 +1,12 @@
+.env
+.env.local
+.env.example
+__pycache__
+*.pyc
+.git
+.gitignore
+*.md
+deploy.sh
+build-and-deploy.sh
+.dockerignore
+Dockerfile
