@@ -30,32 +30,9 @@ famoir-backend/static/
 # Lock files (keep package-lock.json)
 bun.lockb
 
-# Demo video assets (too large for git)
+# Local-only files (internal docs, planning, demo assets, archives)
+_local/
 demo video assets/
-
-# Source images (already in frontend public/)
-home page photos/
-
-# Internal planning docs (not for public repo)
-*.docx
-Famoir_Project_Plan.docx
-Famoir_Roadmap.docx
-Famoir_Brand_Visual_Asset_Brief.docx
-Famoir_MultiAgent_Architecture.docx
-Famoir_UX_Design_Brief.docx
-Famoir_Mobile_Interview_Spec.docx
-Famoir_Technical_Next_Steps.md
-Famoir_Implementation_Plan.md
-Famoir_Task_List.md
-Famoir_Demo_Script_v1.md
-Famoir_Demo_Script_v2.md
-Famoir_Demo_Interview_Script_v2.md
-Famoir_Demo_Voiceover_v2.md
-famoir-hackathon-SKILL-v2.md
-Gemini Multi-Agent-*.png
-
-# Agent briefing (not for public repo)
 CLAUDE.md
-
-# Archive folder
-archive/
+DEPLOY_GUIDE.md
+Reference_Google_ADK_Codelab.md
